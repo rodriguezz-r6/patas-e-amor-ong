@@ -1,0 +1,202 @@
+/* Resete Básico e Variáveis de Cor */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --cor-principal: #2e7d32;      /* Verde sustentável */
+    --cor-secundaria: #1b5e20;     /* Verde escuro */
+    --cor-fundo: #f4f6f8;          /* Cinza claro */
+    --cor-texto: #333333;
+    --cor-cards: #ffffff;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* Cabeçalho e Navegação */
+header {
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    padding: 1rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* Conteúdo Principal */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Seção Hero e Seções Comuns */
+.hero {
+    background-color: var(--cor-cards);
+    padding: 2.5rem 2.5rem 3rem 2.5rem; /* Aumentado o padding inferior para 3rem */
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2.5rem; /* Distância entre o card hero e a seção sobre */
+}
+
+.hero h2 {
+    color: var(--cor-secundaria);
+    margin-bottom: 0.8rem;
+}
+
+.sobre, .intro-projetos {
+    background-color: var(--cor-cards);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Correção do Título da Seção */
+.pilares h2, .lista-projetos h2.titulo-secao {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--cor-secundaria);
+}
+
+/* Grid de Pilares e Projetos */
+.pilares, .lista-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.pilar-card, .projeto-card {
+    background-color: var(--cor-cards);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 5px solid var(--cor-principal);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.pilar-card h3, .projeto-card h2 {
+    margin-bottom: 0.5rem;
+    color: var(--cor-secundaria);
+}
+
+/* Formulário de Cadastro */
+.form-section {
+    background-color: var(--cor-cards);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-section h1 {
+    color: var(--cor-secundaria);
+    margin-bottom: 0.5rem;
+}
+
+fieldset {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+legend {
+    font-weight: bold;
+    color: var(--cor-principal);
+    padding: 0 0.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.input-group input:focus, 
+.input-group select:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+}
+
+/* Botões */
+.btn {
+    display: inline-block; /* Garante que o link aceite margens corretamente */
+    background-color: var(--cor-principal);
+    color: #ffffff;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1.5rem;    /* Espaço em relação ao texto de cima */
+    margin-bottom: 0.5rem; /* Margem de segurança inferior */
+}
+
+.btn-submit {
+    width: 100%;
+}
+
+.btn:hover, .btn-submit:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #222222;
+    color: #ffffff;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
