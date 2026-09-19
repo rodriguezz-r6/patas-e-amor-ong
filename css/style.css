@@ -1,202 +1,165 @@
-/* Resete Básico e Variáveis de Cor */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ==========================================================================
+   1. DESIGN SYSTEM - VARIÁVEIS (:root)
+   ========================================================================== */
+:root {
+  /* Paleta de Cores (8 Cores) */
+  --color-primary: #1b5e20;         /* Verde Floresta */
+  --color-primary-hover: #144417;   /* Verde Escuro */
+  --color-secondary: #0277bd;       /* Azul Confiança */
+  --color-accent: #f57c00;          /* Laranja Engajamento */
+
+  --color-bg: #f8f9fa;              /* Cinza Claro */
+  --color-surface: #ffffff;         /* Branco Puro */
+  --color-text-primary: #212529;    /* Grafite Escuro */
+  --color-text-secondary: #495057;  /* Cinza Médio */
+
+  /* Escala Tipográfica (5 Patamares) */
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --font-size-h1: 2.25rem;          /* 36px */
+  --font-size-h2: 1.75rem;          /* 28px */
+  --font-size-h3: 1.375rem;         /* 22px */
+  --font-size-body: 1rem;           /* 16px */
+  --font-size-small: 0.875rem;      /* 14px */
+
+  /* Espaçamentos Modulares */
+  --spacing-xs: 0.25rem;            /* 4px */
+  --spacing-sm: 0.5rem;             /* 8px */
+  --spacing-md: 1rem;               /* 16px */
+  --spacing-lg: 2rem;               /* 32px */
+  --spacing-xl: 4rem;               /* 64px */
 }
 
-:root {
-    --cor-principal: #2e7d32;      /* Verde sustentável */
-    --cor-secundaria: #1b5e20;     /* Verde escuro */
-    --cor-fundo: #f4f6f8;          /* Cinza claro */
-    --cor-texto: #333333;
-    --cor-cards: #ffffff;
+/* ==========================================================================
+   2. RESET E ESTILOS GERAIS
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
 }
 
-/* Cabeçalho e Navegação */
+/* ==========================================================================
+   3. CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
 header {
-    background-color: var(--cor-principal);
-    color: #ffffff;
-    padding: 1rem 2rem;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding: var(--spacing-md) var(--spacing-lg);
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
+  display: flex;
+  gap: var(--spacing-md);
+  list-style: none;
+  justify-content: center;
 }
 
 nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: opacity 0.2s;
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: 600;
 }
 
 nav a:hover {
-    opacity: 0.8;
+  text-decoration: underline;
 }
 
-/* Conteúdo Principal */
+/* ==========================================================================
+   4. CONTEÚDO PRINCIPAL E TIPOGRAFIA
+   ========================================================================== */
 main {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+  max-width: 900px;
+  margin: var(--spacing-lg) auto;
+  padding: 0 var(--spacing-md);
 }
 
-/* Seção Hero e Seções Comuns */
-.hero {
-    background-color: var(--cor-cards);
-    padding: 2.5rem 2.5rem 3rem 2.5rem; /* Aumentado o padding inferior para 3rem */
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2.5rem; /* Distância entre o card hero e a seção sobre */
+h1 {
+  font-size: var(--font-size-h1);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
 }
 
-.hero h2 {
-    color: var(--cor-secundaria);
-    margin-bottom: 0.8rem;
+h2 {
+  font-size: var(--font-size-h2);
+  color: var(--color-primary-hover);
+  margin-bottom: var(--spacing-sm);
 }
 
-.sobre, .intro-projetos {
-    background-color: var(--cor-cards);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+h3 {
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--spacing-xs);
 }
 
-/* Correção do Título da Seção */
-.pilares h2, .lista-projetos h2.titulo-secao {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin-bottom: 1rem;
-    color: var(--cor-secundaria);
+section {
+  background-color: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: 8px;
+  margin-bottom: var(--spacing-lg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* Grid de Pilares e Projetos */
-.pilares, .lista-projetos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.pilar-card, .projeto-card {
-    background-color: var(--cor-cards);
-    padding: 1.5rem;
-    border-radius: 10px;
-    border-left: 5px solid var(--cor-principal);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.pilar-card h3, .projeto-card h2 {
-    margin-bottom: 0.5rem;
-    color: var(--cor-secundaria);
-}
-
-/* Formulário de Cadastro */
-.form-section {
-    background-color: var(--cor-cards);
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.form-section h1 {
-    color: var(--cor-secundaria);
-    margin-bottom: 0.5rem;
-}
-
+/* ==========================================================================
+   5. FORMULÁRIOS E BOTÕES (cadastro.html)
+   ========================================================================== */
 fieldset {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
+  border: 1px solid #ddd;
+  padding: var(--spacing-md);
+  border-radius: 6px;
+  margin-bottom: var(--spacing-md);
 }
 
 legend {
-    font-weight: bold;
-    color: var(--cor-principal);
-    padding: 0 0.5rem;
+  font-weight: bold;
+  padding: 0 var(--spacing-xs);
+  color: var(--color-primary);
 }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.2rem;
+label {
+  display: block;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
 }
 
-.input-group label {
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    font-size: 0.95rem;
+input, select, textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: var(--font-size-body);
 }
 
-.input-group input, 
-.input-group select, 
-.input-group textarea {
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
+button {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-body);
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.input-group input:focus, 
-.input-group select:focus, 
-.input-group textarea:focus {
-    outline: none;
-    border-color: var(--cor-principal);
-    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+button:hover {
+  opacity: 0.9;
 }
 
-/* Botões */
-.btn {
-    display: inline-block; /* Garante que o link aceite margens corretamente */
-    background-color: var(--cor-principal);
-    color: #ffffff;
-    padding: 0.8rem 1.8rem;
-    border: none;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    margin-top: 1.5rem;    /* Espaço em relação ao texto de cima */
-    margin-bottom: 0.5rem; /* Margem de segurança inferior */
-}
-
-.btn-submit {
-    width: 100%;
-}
-
-.btn:hover, .btn-submit:hover {
-    background-color: var(--cor-secundaria);
-}
-
-/* Rodapé */
+/* ==========================================================================
+   6. RODAPÉ
+   ========================================================================== */
 footer {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #222222;
-    color: #ffffff;
-    margin-top: 3rem;
-    font-size: 0.9rem;
+  text-align: center;
+  padding: var(--spacing-md);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
 }
