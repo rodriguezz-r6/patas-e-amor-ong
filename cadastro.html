@@ -11,11 +11,11 @@
     <header>
         <nav>
             <div class="logo">
-                <h1>🐾 Patas & Amor</h1>
+                <h1>Patas & Amor</h1>
             </div>
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Nossos Resgataes</a></li>
+                <li><a href="projetos.html">Nossos Resgates</a></li>
                 <li><a href="cadastro.html">Quero Ajudar</a></li>
             </ul>
         </nav>
@@ -23,8 +23,21 @@
 
     <main>
         <section class="form-section">
+
+            <!-- 1. BADGES (Etiquetas de Categoria no Topo) -->
+            <div class="desafio-badges">
+                <span class="badge badge-sucesso">Causa Animal</span>
+                <span class="badge badge-info">Voluntariado</span>
+            </div>
+
             <h1>Seja um Colaborador Voluntário</h1>
             <p>Junte-se a nós! Preencha o formulário abaixo para registrar seu interesse em apoiar nossa causa animal.</p>
+
+            <!-- 2. ALERTA / TOAST (Caixa de Notificação) -->
+            <!-- ALERTA DE SUCESSO (Inicia oculto) -->
+           <div id="alerta-sucesso" class="alert alert-sucesso hidden">
+                 <strong>Sucesso!</strong> O seu cadastro foi validado e recebido com sucesso.
+             </div>
 
             <form id="form-cadastro" action="#" method="POST">
                 
@@ -92,11 +105,23 @@
                 <button type="submit" class="btn-submit">Finalizar Cadastro</button>
             </form>
         </section>
+
+        <!-- 3. MODAL (Caixa Suspensa) -->
+        <div class="modal-backdrop">
+            <div class="modal-content">
+                <h3>Cadastro Recebido!</h3>
+                <p>Obrigado por se voluntariar! Nossa equipe entrará em contato em breve.</p>
+                <button type="button" class="btn-fechar">Fechar</button>
+            </div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2026 ONG Patas & Amor. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Toast Container para Notificações -->
+<div id="toast" class="toast">Mensagem de teste!</div>
 
     <!-- Script das Máscaras de Entrada -->
     <script src="js/script.js"></script>

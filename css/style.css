@@ -26,7 +26,7 @@ body {
 }
 
 /* ==========================================================================
-   2. CABEÇALHO VERDE COM LOGO BRANCA
+   2. CABEÇALHO E NAVEGAÇÃO
    ========================================================================== */
 header {
   background-color: var(--verde-principal);
@@ -45,7 +45,6 @@ header nav {
   align-items: center;
 }
 
-/* Estilo da Logo com Emoji de Patinhas */
 .logo, header h1, header nav > a:first-child {
   color: #ffffff !important;
   font-size: 1.8rem;
@@ -56,7 +55,6 @@ header nav {
   gap: 10px;
 }
 
-/* Links do Menu */
 nav ul {
   display: flex;
   gap: 1.5rem;
@@ -78,7 +76,7 @@ nav a:hover {
 }
 
 /* ==========================================================================
-   3. ESTRUTURA PRINCIPAL E CARDS DESTACADOS
+   3. ESTRUTURA PRINCIPAL E CARDS
    ========================================================================== */
 main {
   max-width: 1100px;
@@ -86,7 +84,6 @@ main {
   padding: 0 1.5rem;
 }
 
-/* Container de Seção / Card Principal */
 section {
   background-color: var(--fundo-card);
   padding: 2.5rem;
@@ -115,7 +112,6 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Ajuste de Imagens nos Cards */
 img {
   width: 100%;
   max-height: 450px;
@@ -125,7 +121,6 @@ img {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Grid para Organizar Projetos e Ações em Cartões */
 .grid-cards, article {
   background-color: #f9fbf9;
   border: 1px solid #e0e0e0;
@@ -161,21 +156,23 @@ label {
   color: var(--texto-principal);
 }
 
-input {
+input, select, textarea {
   width: 100%;
   padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
+  font-family: inherit;
+  background-color: #ffffff;
 }
 
-input:focus {
+input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--verde-principal);
   box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.2);
 }
 
-button {
+button, .btn-submit {
   background-color: var(--destaque-botao);
   color: #ffffff;
   border: none;
@@ -189,12 +186,149 @@ button {
   margin-top: 1rem;
 }
 
-button:hover {
+button:hover, .btn-submit:hover {
   background-color: var(--destaque-botao-hover);
 }
 
+a.btn-primary {
+  display: inline-block;
+  background-color: var(--destaque-botao);
+  color: #ffffff !important;
+  padding: 0.85rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 1rem;
+}
+
+a.btn-primary:hover {
+  background-color: var(--destaque-botao-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
 /* ==========================================================================
-   5. RODAPÉ
+   5. COMPONENTES VISUAIS (BADGES, ALERTA E MODAL)
+   ========================================================================== */
+
+/* Badges (Etiquetas) */
+.desafio-badges {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.badge-sucesso {
+  background-color: #dcedc8;
+  color: #33691e;
+}
+
+.badge-info {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+/* Alerta / Toast */
+.alert {
+  padding: 15px 20px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  border-left: 5px solid;
+}
+
+.alert-sucesso {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+  border-left-color: #28a745;
+}
+
+/* Modal (Popup Centralizado) */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex; /* Alterne para 'none' via JS ou CSS para ocultar */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none; /* <--- Oculta por padrão para não travar a tela */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-backdrop.active {
+  display: flex; /* Exibe o modal apenas quando ativado */
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--verde-principal);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: var(--verde-principal);
+  font-size: 22px;
+}
+
+.modal-content p {
+  color: #333333;
+  font-size: 15px;
+  margin: 15px 0;
+}
+
+.btn-fechar {
+  background-color: var(--verde-principal);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 0;
+  transition: background-color 0.3s;
+}
+
+.btn-fechar:hover {
+  background-color: #0c3d0f;
+}
+
+/* ==========================================================================
+   6. RODAPÉ
    ========================================================================== */
 footer {
   background-color: var(--verde-principal);
@@ -210,25 +344,34 @@ footer p {
   font-size: 0.95rem;
 }
 
-/* ==========================================================================
-   ESTILO PARA LINKS COM APARÊNCIA DE BOTÃO
-   ========================================================================== */
-a.btn-primary {
-  display: inline-block;
-  background-color: var(--destaque-botao);
-  color: #ffffff !important; /* Força o texto a ficar branco */
-  padding: 0.85rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  margin-top: 1rem;
+/* Esconde elementos ocultos */
+.hidden {
+  display: none !important;
 }
 
-a.btn-primary:hover {
-  background-color: var(--destaque-botao-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+/* Estilo do Toast (Notificação Flutuante) */
+.toast {
+  visibility: hidden;
+  min-width: 280px;
+  background-color: var(--cor-principal, #1b5e20);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 14px 20px;
+  position: fixed;
+  z-index: 1000;
+  right: 20px;
+  bottom: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease, bottom 0.3s ease, visibility 0.3s;
+}
+
+/* Classe ativa exibida via JavaScript */
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 40px;
 }
