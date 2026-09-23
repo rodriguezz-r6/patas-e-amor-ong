@@ -4,7 +4,7 @@
 :root {
   --verde-principal: #1b5e20;
   --verde-hover: #2e7d32;
-  --fundo-pagina: #f0f2f5;
+  --fundo-pagina: #f2f4f7; /* Fundo branco meio acinzentado */
   --fundo-card: #ffffff;
   --texto-principal: #222222;
   --texto-suave: #555555;
@@ -30,121 +30,147 @@ body {
    ========================================================================== */
 header {
   background-color: var(--verde-principal);
+  color: #ffffff;
   padding: 1.2rem 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-header nav {
-  max-width: 1100px;
+.header-container {
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.logo, header h1, header nav > a:first-child {
+.branding-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.logo {
   color: #ffffff !important;
   font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
-nav ul {
+.contato-lista {
+  list-style: none;
+  font-size: 0.82rem;
+  color: #e0e0e0;
+  line-height: 1.3;
+}
+
+.nav-menu {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
   list-style: none;
 }
 
-nav a {
-  color: #ffffff;
+.nav-menu a {
+  color: #ffffff !important;
   text-decoration: none;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.9rem;
   border-radius: 6px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
-nav a:hover {
+.nav-menu a:hover {
   background-color: var(--verde-hover);
 }
 
 /* ==========================================================================
-   3. ESTRUTURA PRINCIPAL E CARDS
+   3. PÁGINA INICIAL E CARDS COM BORDA VERDE
    ========================================================================== */
-main {
+main, .inicio-container {
   max-width: 1100px;
   margin: 2.5rem auto;
   padding: 0 1.5rem;
 }
 
-section {
-  background-color: var(--fundo-card);
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  margin-bottom: 2rem;
+.boas-vindas {
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
-h1 {
+.boas-vindas h1 {
   color: var(--verde-principal);
   font-size: 2.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
-h2 {
-  color: var(--verde-principal);
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid var(--fundo-pagina);
-  padding-bottom: 0.5rem;
-}
-
-p {
+.boas-vindas p {
   color: var(--texto-suave);
   font-size: 1.1rem;
+}
+
+/* GRID DE CARDS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* CARD COM BORDA FINA APENAS DO LADO ESQUERDO */
+.card-projeto {
+  background-color: var(--fundo-card);
+  border-radius: 8px;
+  border-left: 5px solid var(--verde-principal); /* Borda verde à esquerda */
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-projeto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-projeto h2 {
+  color: var(--verde-principal);
+  font-size: 1.4rem;
   margin-bottom: 1rem;
 }
 
-img {
+.img-card {
   width: 100%;
-  max-height: 450px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 12px;
-  margin: 1.5rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
-.grid-cards, article {
-  background-color: #f9fbf9;
-  border: 1px solid #e0e0e0;
-  border-left: 6px solid var(--verde-principal);
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-top: 1.2rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+.descricao-card {
+  color: var(--texto-suave);
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
 /* ==========================================================================
-   4. FORMULÁRIO DE CADASTRO (cadastro.html)
+   4. FORMULÁRIO DE CADASTRO
    ========================================================================== */
 fieldset {
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
+  background-color: #fff;
 }
 
 legend {
   font-weight: bold;
   color: var(--verde-principal);
-  font-size: 1.2rem;
   padding: 0 0.5rem;
 }
 
@@ -153,120 +179,50 @@ label {
   margin-top: 1rem;
   margin-bottom: 0.3rem;
   font-weight: 600;
-  color: var(--texto-principal);
 }
 
 input, select, textarea {
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 1rem;
   font-family: inherit;
-  background-color: #ffffff;
 }
 
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: var(--verde-principal);
-  box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.2);
-}
-
-button, .btn-submit {
+button, .btn-primary {
+  display: inline-block;
   background-color: var(--destaque-botao);
-  color: #ffffff;
+  color: #ffffff !important;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
+  padding: 0.9rem 1.8rem;
+  font-size: 1rem;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  text-align: center;
   width: 100%;
   margin-top: 1rem;
 }
 
-button:hover, .btn-submit:hover {
+button:hover, .btn-primary:hover {
   background-color: var(--destaque-botao-hover);
-}
-
-a.btn-primary {
-  display: inline-block;
-  background-color: var(--destaque-botao);
-  color: #ffffff !important;
-  padding: 0.85rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  margin-top: 1rem;
-}
-
-a.btn-primary:hover {
-  background-color: var(--destaque-botao-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================================================
-   5. COMPONENTES VISUAIS (BADGES, ALERTA E MODAL)
+   5. COMPONENTES VISUAIS (MODAL, TOAST, ALERT)
    ========================================================================== */
-
-/* Badges (Etiquetas) */
-.desafio-badges {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.badge {
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: bold;
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.badge-sucesso {
-  background-color: #dcedc8;
-  color: #33691e;
-}
-
-.badge-info {
-  background-color: #e3f2fd;
-  color: #1565c0;
-}
-
-/* Alerta / Toast */
-.alert {
-  padding: 15px 20px;
-  border-radius: 6px;
-  margin-bottom: 25px;
-  font-size: 14px;
-  border-left: 5px solid;
-}
-
-.alert-sucesso {
+.alert-success {
   background-color: #d4edda;
   color: #155724;
-  border-color: #c3e6cb;
-  border-left-color: #28a745;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
 }
 
-/* Modal (Popup Centralizado) */
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex; /* Alterne para 'none' via JS ou CSS para ocultar */
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+.hidden {
+  display: none !important;
 }
 
 .modal-backdrop {
@@ -275,103 +231,74 @@ a.btn-primary:hover {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: none; /* <--- Oculta por padrão para não travar a tela */
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 
 .modal-backdrop.active {
-  display: flex; /* Exibe o modal apenas quando ativado */
+  display: flex;
 }
 
 .modal-content {
   background: #ffffff;
-  padding: 30px;
+  padding: 2rem;
   border-radius: 10px;
   text-align: center;
-  max-width: 450px;
+  max-width: 420px;
   width: 90%;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  border: 2px solid var(--verde-principal);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content h3 {
-  margin-top: 0;
   color: var(--verde-principal);
-  font-size: 22px;
-}
-
-.modal-content p {
-  color: #333333;
-  font-size: 15px;
-  margin: 15px 0;
 }
 
 .btn-fechar {
   background-color: var(--verde-principal);
   color: #ffffff;
   border: none;
-  padding: 10px 20px;
+  padding: 0.7rem 1.5rem;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 14px;
   width: 100%;
-  margin-top: 0;
-  transition: background-color 0.3s;
+  margin-top: 1rem;
 }
 
-.btn-fechar:hover {
-  background-color: #0c3d0f;
+.toast {
+  visibility: hidden;
+  min-width: 280px;
+  background-color: var(--verde-principal);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 12px 20px;
+  position: fixed;
+  z-index: 1000;
+  right: 20px;
+  bottom: 30px;
+  opacity: 0;
+  transition: opacity 0.3s ease, bottom 0.3s ease, visibility 0.3s;
 }
 
-/* ==========================================================================
-   6. RODAPÉ
-   ========================================================================== */
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 40px;
+}
+
 footer {
   background-color: var(--verde-principal);
   color: #ffffff;
   text-align: center;
-  padding: 1.5rem;
+  padding: 1.2rem;
   margin-top: 3rem;
 }
 
 footer p {
   color: #ffffff;
   margin: 0;
-  font-size: 0.95rem;
-}
-
-/* Esconde elementos ocultos */
-.hidden {
-  display: none !important;
-}
-
-/* Estilo do Toast (Notificação Flutuante) */
-.toast {
-  visibility: hidden;
-  min-width: 280px;
-  background-color: var(--cor-principal, #1b5e20);
-  color: #ffffff;
-  text-align: center;
-  border-radius: 8px;
-  padding: 14px 20px;
-  position: fixed;
-  z-index: 1000;
-  right: 20px;
-  bottom: 30px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: opacity 0.3s ease, bottom 0.3s ease, visibility 0.3s;
-}
-
-/* Classe ativa exibida via JavaScript */
-.toast.show {
-  visibility: visible;
-  opacity: 1;
-  bottom: 40px;
 }
